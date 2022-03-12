@@ -1,0 +1,191 @@
+- double store 8 bytes, 15 - 16 digits.
+
+- int and float 4 bytes like 6 - 7 digits.
+
+- boolean type is not standard in c you can use it as a number false = 0 and true = 1;
+
+- if you add - in a number automatically one bit go for sign.
+
+- see data types table.
+
+- if number is overflows it will recount from 0 for example using 1 bytes => 8 bit 0 - 255.
+  if entred number is 256 it will return 0 if the number 258 it will return 2;
+
+- the number overflows because it max than the range and it behave like this. it will trigger the Modulo operation
+
+- 1 2 4 8 16 32 64 = 127
+1 bit at first is the sign number 1 + 7 bit = 8 bytes
+127 + 1
+
+1 1 1 1 1 1 1 1 = 127 value
++
+0 0 0 0 0 0 0 1 = 1 value
+
+return 1 is overflows and first number is 0 and the 0 is sign to -
+
+the real number     1 0 0 0 0 0 0 0 0.
+the computer number   0 0 0 0 0 0 0 0.
+
+- long long
+
+- set to signed by default.
+
+- char char[]
+- float 4 bytes | double 8 bytes.
+- int | long int | long long int | unsigned long long int. or remove the int. | short or short int. -+32,768 2 bytes
+- bool
+
+---------------------------------------------------------------------------------
+
+- use const keyword to create constant variable and type the variable in name uppercase => code pratice.
+
+
+- formate specifiers => 1. %3.2f | the three(3) => for min width
+                    => %-1.llu for left align.
+- in divition , when divide by an integers we truncate by the decimal portion.
+int result = x / y;
+we want to change the result to store in float and the y to float not integer.
+why? the compiler see the divition between two integer that tell the compiler to return an integer and the convert it to float by that
+the decimal portion are ignored.
+
+or you can use this approach
+
+float number = x / (float) y;
+
+- to get address use & (&variable_name);
+- scanf(string format, variable address);
+- char name[] = it will auto generate how many bytes.
+- char name[10] = it will generate a string with 10 bytes in other speach 10 characters.
+- the end of scanf is whitespace
+
+---------------------------------------------------------------------------------------
+
+
+- fgets(char variable, bytes (int),stdin ) => standard input
+- to remove the \n of auto fgets function in string you use this
+#include <string.h>
+
+name[strlen(name) - 1] = '\0' | '\0'  means nothing
+
+#include <math.h>
+
+there are math function.
+pow(23,32);
+sqrt()
+round();
+floor();
+ceil();
+log();
+fabs(): for absolute
+tan, cos, sin
+------------------------------------------------
+- logical operator
+ && = and
+ || = or
+ ! = not
+- there is a global variables in c ( that's good);
+- function can't see other variable in other functions.
+- you should declare the data type of vaiable in functions parameters.
+  like : void doSomething(int num, char name[]) { //operation };
+
+- by the way: you can do this in c
+
+int main()
+{
+    void first()
+    {
+        printf("hell world");
+    }
+    void second()
+    {
+        printf("nothing");
+    }
+    false ? first() : second();
+    return 0;
+}
+
+- c functions prototype, useful for function hoisting in javascript...
+  easier to navigate main() program at the top.
+  helps with debugging.
+  commonly used in header files.
+- many c compiler do not check for parameters matching
+- missing argument will result unexpected behaviour
+- function prototype causes flag to the error if there arg missing
+
+----------------------------------------------
+- strlwr() => convert to lowercasee;
+- strup() => convert to uppercase;
+- strcat();
+- strncat();
+- strcpy();
+- strncpy();
+- strset(); => set all characters to to the given character;
+- strnset(); => set all characters to to the given character with n index;
+- strrev(); => string reverse
+- strlen();
+- strcmp(); => for comparing;
+- strncmp();
+- strcmpi(); => ignore casing lowercase == uppercase;
+- strncmpi() => for n index;
+- important: if you want to get rid if that behaviour when auto input the value in scanf() 
+why this behaviour: becuase scanf() add \n in the end of the text and the second scanf() will automatically catch that value
+solve: add scan("%c") in the next line of first scanf();
+
+------------------------------------------------------------------------------------------------------
+
+- sizeof(arr) => size of arrays specifies by the type of data and the number of itmes;
+float numbers[] = {1,1,1} => float => 4 bytes, numbers array => 12 bytes;
+- empty item in number equal zero;
+
+- creating matrix array
+int numbers[2]3] = {{1,2,3}, {1,2,3}}; 
+- access the numbers array;
+numbers[1][0] = 3;
+
+- array of string
+
+char numbers[][bytes] = {"hello", "welcome", "test"}
+
+- for change the strings;
+use string copy
+#include <string.h>;
+strcpy(numbers[0][0], "welcome");
+
+---------------------------------------------
+struct Person
+{
+    char name[12];
+    int age;
+    char admin;
+};
+
+    struct Person person_one;
+    struct Person person_two = {"david", 23, 'T'};
+
+typedef data_type nameOfnewKeyword;
+
+you can use 
+
+typedef char username[15];
+
+typedef struct {
+    char username[15];
+} User;
+
+arrys of struct;
+enum Name{...anything};
+
+------------------------------------------------------
+
+bitwise operator;
+
+and & 
+or | 
+xor ^ 
+
+<< left shift
+>> right shift
+
+- memory
+
+- one block has one address and one block = 1 bytes = 8 bit;
